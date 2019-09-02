@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8" />
+        <title>Iframe_It</title>
+    </head>
+    <body>
+        <iframe id='iframe'></iframe>
+<script>
+
+const html = "<!DOCTYPE html><html><head><style type=\"text\/css\">body,html{margin:0;padding:0}canvas{display:block}\r\n\/*# sourceMappingURL=style.073856ee.css.map *\/<\/style><meta charset=\"utf-8\"><\/head><body> <script src=\"https:\/\/cdnjs.cloudflare.com\/ajax\/libs\/p5.js\/0.9.0\/p5.js\"><\/script> <script src=\"https:\/\/cdnjs.cloudflare.com\/ajax\/libs\/p5.js\/0.9.0\/addons\/p5.dom.min.js\"><\/script> <script src=\"https:\/\/cdnjs.cloudflare.com\/ajax\/libs\/p5.js\/0.9.0\/addons\/p5.sound.min.js\"><\/script> <script>parcelRequire=function(e,r,t,n){var i,o=\"function\"==typeof parcelRequire&&parcelRequire,u=\"function\"==typeof require&&require;function f(t,n){if(!r[t]){if(!e[t]){var i=\"function\"==typeof parcelRequire&&parcelRequire;if(!n&&i)return i(t,!0);if(o)return o(t,!0);if(u&&\"string\"==typeof t)return u(t);var c=new Error(\"Cannot find module \'\"+t+\"\'\");throw c.code=\"MODULE_NOT_FOUND\",c}p.resolve=function(r){return e[t][1][r]||r},p.cache={};var l=r[t]=new f.Module(t);e[t][0].call(l.exports,p,l,l.exports,this)}return r[t].exports;function p(e){return f(p.resolve(e))}}f.isParcelRequire=!0,f.Module=function(e){this.id=e,this.bundle=f,this.exports={}},f.modules=e,f.cache=r,f.parent=o,f.register=function(r,t){e[r]=[function(e,r){r.exports=t},{}]};for(var c=0;c<t.length;c++)try{f(t[c])}catch(e){i||(i=e)}if(t.length){var l=f(t[t.length-1]);\"object\"==typeof exports&&\"undefined\"!=typeof module?module.exports=l:\"function\"==typeof define&&define.amd?define(function(){return l}):n&&(this[n]=l)}if(parcelRequire=f,i)throw i;return f}({\"nyCU\":[function(require,module,exports) {\r\nvar e=function(e){var t,n=10,r=\"right\",o=10,i=[],a=[],s=0,h=0;function c(){s=10*e.floor(e.random(10,(e.width-100)\/10)),h=10*e.floor(e.random(10,(e.height-100)\/10))}e.setup=function(){if(void 0===document)throw\"Document not defined. Can only run this script in a browser.\";(t=e.createDiv(\"Score = 0\")).position(20,20),t.id=\"score\",t.style(\"color\",\"white\"),e.createCanvas(500,500),e.frameRate(15),e.stroke(255),e.strokeWeight(10),c();for(var r=0;r<n;r++)i.push(0+r*o),a.push(250)},e.draw=function(){e.background(0);for(var f=0;f<n-1;f++)e.line(i[f],a[f],i[f+1],a[f+1]);!function(){for(var e=0;e<n-1;e++)i[e]=i[e+1],a[e]=a[e+1];switch(r){case\"right\":i[n-1]=i[n-2]+o,a[n-1]=a[n-2];break;case\"up\":i[n-1]=i[n-2],a[n-1]=a[n-2]-o;break;case\"left\":i[n-1]=i[n-2]-o,a[n-1]=a[n-2];break;case\"down\":i[n-1]=i[n-2],a[n-1]=a[n-2]+o}}(),function(){if(i[i.length-1]>e.width||i[i.length-1]<0||a[a.length-1]>e.height||a[a.length-1]<0||function(){for(var e=i[i.length-1],t=a[a.length-1],n=0;n<i.length-1;n++)if(i[n]===e&&a[n]===t)return!0}()){e.noLoop();var n=parseInt(t.html().substring(8));t.html(\"Game ended! Your score was : \"+n)}}(),function(){if(e.point(s,h),i[i.length-1]===s&&a[a.length-1]===h){var r=parseInt(t.html().substring(8));t.html(\"Score = \"+(r+1)),i.unshift(i[0]),a.unshift(a[0]),n++,c()}}()},e.keyPressed=function(){switch(e.keyCode){case 74:\"right\"!==r&&(r=\"left\");break;case 76:\"left\"!==r&&(r=\"right\");break;case 73:\"down\"!==r&&(r=\"up\");break;case 75:\"up\"!==r&&(r=\"down\")}}},t=new p5(e);\r\n},{}]},{},[\"nyCU\"], null)\r\n\/\/# sourceMappingURL=sketch.91d9685f.js.map<\/script> <\/body><\/html>";
+</script>
+        <script>
+            const iframe = document.querySelector('#iframe');
+            iframe.onload = function() {
+              iframe.style.height = 0;
+              iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+              iframe.style.width = 0;
+              iframe.style.width = iframe.contentWindow.document.body.scrollWidth + 'px';
+            };
+            // const html = "<p>Hello world<\/p>";
+            iframe.contentWindow.document.open();
+            iframe.contentWindow.document.write(html);
+            iframe.contentWindow.document.close();
+        </script>
+
+    </body>
+</html>
